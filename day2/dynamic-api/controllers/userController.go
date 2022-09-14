@@ -1,8 +1,8 @@
 package controllers
 
 import (
-	"github.com/ferriantitus/day-1/lib/database"
-	"github.com/ferriantitus/day-1/models"
+	"github.com/ferriantitus/alterra-agmc/day2/dynamic-api/lib/database"
+	"github.com/ferriantitus/alterra-agmc/day2/dynamic-api/models"
 	"github.com/labstack/echo"
 	"net/http"
 )

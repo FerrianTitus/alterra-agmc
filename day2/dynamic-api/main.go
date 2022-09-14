@@ -1,14 +1,8 @@
 package main
 
 import (
-	"github.com/ferriantitus/day-1/config"
-	"github.com/ferriantitus/day-1/routes"
+	"github.com/ferriantitus/alterra-agmc/day2/dynamic-api/routes"
 )
-
-func init() {
-	config.InitDB()
-	config.InitialMigration()
-}
 
 func main() {
 	e := routes.New()

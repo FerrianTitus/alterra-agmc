@@ -1,7 +1,7 @@
 package routes
 
 import (
-	"github.com/ferriantitus/day-1/controllers"
+	"github.com/ferriantitus/alterra-agmc/day2/dynamic-api/controllers"
 	"github.com/labstack/echo"
 )
 

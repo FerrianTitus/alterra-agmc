@@ -1,8 +1,8 @@
 package database
 
 import (
-	"github.com/ferriantitus/day-1/config"
-	"github.com/ferriantitus/day-1/models"
+	"github.com/ferriantitus/alterra-agmc/day2/dynamic-api/config"
+	"github.com/ferriantitus/alterra-agmc/day2/dynamic-api/models"
 )
 
 func GetUsers() (interface{}, error) {

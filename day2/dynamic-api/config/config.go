@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
-	"github.com/ferriantitus/day-1/models"
+	"github.com/ferriantitus/alterra-agmc/day2/dynamic-api/models"
 )
 
 var DB *gorm.DB

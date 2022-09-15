@@ -8,6 +8,8 @@ import (
 
 func main() {
 	config.InitDB()
+	config.InitialMigration()
+
 	e := routes.New()
 
 	m.LogMiddleware(e)

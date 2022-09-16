@@ -2,9 +2,9 @@ package config
 
 import (
 	"fmt"
+	"github.com/ferriantitus/alterra-agmc/day2/dynamic-api/models"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
-	"github.com/ferriantitus/alterra-agmc/day2/dynamic-api/models"
 )
 
 var DB *gorm.DB

@@ -2,6 +2,7 @@ package database
 
 import (
 	"github.com/ferriantitus/alterra-agmc/day2/dynamic-api/config"
+	"github.com/ferriantitus/alterra-agmc/day2/dynamic-api/middleware"
 	"github.com/ferriantitus/alterra-agmc/day2/dynamic-api/models"
 )
 
@@ -54,4 +55,27 @@ func CreateUser(email string, password string) (interface{}, error) {
 		return nil, err
 	}
 	return users, nil
+}
+
+func GetDetailUsers(userId int) (interface{}, error){
+	var user models.Users
+
+	if e := config.DB.Find(&user, userId).Error; e != nil {
+		return nil, e
+	}
+	return user, nil
+}
+
+func LoginUsers(user *models.Users) (interface{}, error){
+	var err error
+	if err = config.DB.Where("email = ? AND password = ?",
+		user.Email, user.Password).First(user).Error; err != nil {
+		return nil, err
+	}
+
+	token, err := middleware.CreateToken(uint(int(user.ID)))
+	if err != nil {
+		return nil, err
+	}
+	return &token, nil
 }

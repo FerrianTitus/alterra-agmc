@@ -8,21 +8,6 @@ import (
 )
 
 func V1GetUserByIdController(c echo.Context) error {
-	//id, _ := strconv.Atoi(c.Param("id"))
-	//for _, users := range users {
-	//	if users.ID == (id) {
-	//		return c.JSON(http.StatusOK, map[string]interface{}{
-	//			"message": "success",
-	//			"code": http.StatusOK,
-	//			"data": users,
-	//		})
-	//	}
-	//}
-	//return c.JSON(http.StatusBadRequest, map[string]interface{}{
-	//	"message": "user not found",
-	//	"code": http.StatusBadRequest,
-	//})
-
 	id := c.Param("id")
 
 	users, err := database.GetUsersByID(id)
@@ -108,5 +93,18 @@ func V1UpdateUserByIdController(c echo.Context) error {
 	return c.JSON(http.StatusOK, map[string]interface{}{
 		"message": "Edit users success",
 		"data":    users,
+	})
+}
+
+func V1LoginUsersController(c echo.Context) error{
+	user := models.Users{}
+	c.Bind(&user)
+
+	token, err := database.LoginUsers(&user)
+	if err != nil {
+		return echo.NewHTTPError(http.StatusBadRequest, err.Error())
+	}
+	return c.JSON(http.StatusOK, map[string]interface{}{
+		"token": token,
 	})
 }
